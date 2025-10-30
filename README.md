@@ -4,6 +4,8 @@
 
 An app to create beautiful QR codes and scan various QR code types.
 
+**🔥 New: PHP Library Available!** - Use Mini QR's data encoding utilities in your PHP projects. [See PHP documentation](php/README.md)
+
 <div style="display:flex; flex-direction:row; flex-wrap:wrap; justify-content:center; gap:8px;">
     <a href="https://esteetey.dev"><img width="100" src="public/presets/lyqht.svg" /></a>
     <a href="https://www.padlet.com"><img width="100" src="public/presets/padlet.svg" /></a>
@@ -85,6 +87,46 @@ https://github.com/user-attachments/assets/fef17e6a-c226-4136-9501-8d3e951671e0
 https://github.com/lyqht/mini-qr/assets/35736525/991b2d7e-f168-4354-9091-1678d2c1bddb
 
 </details>
+
+## PHP Library 🐘
+
+Mini QR is now available as a PHP library for server-side QR code data generation! The PHP port includes all the data encoding utilities for generating properly formatted QR code data.
+
+### Quick Start
+
+```php
+<?php
+require_once 'php/src/DataEncoding.php';
+use MiniQR\DataEncoding;
+
+// Generate WiFi credentials
+$wifi = DataEncoding::generateWifiData([
+    'ssid' => 'MyNetwork',
+    'encryption' => 'WPA',
+    'password' => 'mypassword'
+]);
+// Output: WIFI:T:WPA;S:MyNetwork;P:mypassword;;
+
+// Generate vCard
+$vcard = DataEncoding::generateVCardData([
+    'firstName' => 'John',
+    'lastName' => 'Doe',
+    'email' => 'john@example.com',
+    'phone' => '+1234567890'
+]);
+```
+
+### Features
+
+- ✅ Data encoding for all QR code types (URL, email, phone, SMS, WiFi, vCard, location, events)
+- ✅ Automatic data type detection and parsing
+- ✅ vCard support (versions 2.1, 3.0, and 4.0)
+- ✅ Special character escaping for different formats
+- ✅ Comprehensive test suite (25 tests, 89 assertions)
+- ✅ Zero dependencies for core functionality
+- ✅ PHP 7.4+ compatible
+
+📖 **[Read the full PHP documentation](php/README.md)**
 
 ## Self-hosting
 
