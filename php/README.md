@@ -1,4 +1,6 @@
-# Mini QR - PHP Library
+# Mini QR - PHP Library (Standalone)
+
+**This is a standalone PHP library** - it works completely independently and doesn't require any JavaScript code. The PHP library generates QR code data that can be used with any PHP QR code generator.
 
 PHP port of the Mini QR JavaScript library for generating QR code data in various formats.
 
@@ -16,16 +18,35 @@ PHP port of the Mini QR JavaScript library for generating QR code data in variou
 
 ## Installation
 
-### Using Composer
+### Option 1: Copy Just the PHP Directory
+
+The simplest way to use this library is to copy the entire `php/` directory to your project:
+
+```bash
+# Copy the php directory to your project
+cp -r php/ /path/to/your/project/mini-qr/
+```
+
+Then include the main file:
+
+```php
+<?php
+require_once 'mini-qr/src/DataEncoding.php';
+use MiniQR\DataEncoding;
+
+// Now you can use all functions
+$url = DataEncoding::generateUrlData(['url' => 'example.com']);
+```
+
+### Option 2: Using Composer
 
 ```bash
 composer require mini-qr/mini-qr-php
 ```
 
-### Manual Installation
+### Option 3: Manual Installation (Single File)
 
-1. Clone or download this repository
-2. Include the autoloader in your project:
+Copy just the `src/DataEncoding.php` file to your project:
 
 ```php
 require_once 'path/to/php/src/DataEncoding.php';
